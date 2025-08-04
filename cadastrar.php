@@ -10,10 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $res = mysqli_query($conn, $sql);
     if ($res) {
         echo "Usuário cadastrado com sucesso!";
-    } else
-        echo "Erro ao cadastrar!";
-};
-$conn -> close();
+    } else {
+        echo "Erro: " . $sql . "<br>" . $conn->$error;
+    };
+    header("Location: index.php");
+}
+$conn->close();
 
 ?>
 
